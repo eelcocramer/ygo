@@ -298,9 +298,9 @@ func (s *SyncClient) Doc() *Doc {
 // matching the "thin binding" scope this type exists for; an app that wants
 // to fan a status out to multiple listeners can do so on its own side of the
 // boundary. Passing nil detaches the current observer.
-func (s *SyncClient) SetOnStatus(o SyncStatusObserver) {
+func (s *SyncClient) SetOnStatus(observer SyncStatusObserver) {
 	s.statusMu.Lock()
-	s.observer = o
+	s.observer = observer
 	s.statusMu.Unlock()
 }
 
